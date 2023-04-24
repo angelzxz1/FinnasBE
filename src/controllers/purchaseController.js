@@ -2,8 +2,8 @@ import Purchase from "../database/models/purchase.js";
 
 export const createPurchase = async (req, res) => {
 	try {
-		const { date, hour, amount } = req.body;
-		const purchase = await Purchase.create({ date, hour, amount });
+		const { date, hour, amountSpent } = req.body;
+		const purchase = await Purchase.create({ date, hour, amountSpent });
 		res.status(201).json(purchase);
 	} catch (error) {
 		console.error(error);

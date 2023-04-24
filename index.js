@@ -1,17 +1,15 @@
-import dotenv from "dotenv"
-import express from 'express'
-dotenv.config()
+import app from "./src/app.js";
+import sequelize from "./src/database/conn.js";
 
-const app = express()
-const port = 3000
-
-const response = {
-    answer : "This is a test"
-}
-app.get('/', (req, res)=>{
-    res.json(response)
-})
-
-app.listen(port, ()=>{
-    console.log(`Listening in port ${port}`)
-})
+const PORT = process.env.PORT || 3000;
+// Connect to the database and start the server
+sequelize
+	.sync()
+	.then(() => {
+		app.listen(PORT, () => {
+			console.log(`Server listening on port ${PORT}`);
+		});
+	})
+	.catch((error) => {
+		console.log("Unable to connect to the database:", error);
+	});

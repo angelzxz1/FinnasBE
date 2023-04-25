@@ -7,7 +7,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 // Connect to the database and start the server
 sequelize
-	.sync({ force: true })
+	.sync({ alter: true })
 	.then(() => {
 		app.listen(PORT, () => {
 			console.log(`Server listening on port ${PORT}`);

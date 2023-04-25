@@ -24,6 +24,7 @@ const Purchase = conn.define(
 	},
 	{
 		freezeTableName: true,
+		timestamps: false,
 	}
 );
 

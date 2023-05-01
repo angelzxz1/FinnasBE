@@ -5,7 +5,7 @@ import User from "../database/models/user.js";
 
 const loginRoute = Router();
 
-loginRoute.post("/", async (req, res) => {
+loginRoute.post("/login", async (req, res) => {
 	const { email, password } = req.body;
 
 	try {
@@ -27,7 +27,7 @@ loginRoute.post("/", async (req, res) => {
 
 		// Create and return JWT token
 		const token = jwt.sign(
-			{ id: user.id },
+			{ id: user.id, email: user.email },
 			"$#dev_secret_jsonwebtoken_key_2998735667#$",
 			{
 				expiresIn: "1h",

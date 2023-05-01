@@ -3,6 +3,9 @@ import helmet from "helmet";
 import cors from "cors";
 import errorHandler from "./middlewares/errorHandler.js";
 import purchaseRoutes from "./routes/purchaseRoutes.js";
+import loginRoute from "./routes/loginRoute.js";
+import registerRoute from "./routes/registerRoute.js";
+
 const app = express();
 
 // Use middleware for security
@@ -15,8 +18,12 @@ app.use(cors());
 app.use(express.json());
 
 // Define routes for purchases and users
+app.use("/register", registerRoute);
+app.use("/login", loginRoute);
 app.use("/purchases", purchaseRoutes);
-app.use("/", (req, res) => {
+
+//Basic get route.
+app.get("/", (req, res) => {
 	res.json({
 		answer: "this is the answer",
 	});

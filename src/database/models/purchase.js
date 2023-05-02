@@ -24,7 +24,10 @@ const Purchase = conn.define(
 	},
 	{
 		freezeTableName: true,
-		timestamps: false,
+		timestamps: true,
+		createdAt: "created_at",
+		updatedAt: "updated_at",
+		dateFormat: "YYYY-MM-DD HH:mm:ss",
 	}
 );
 

@@ -5,6 +5,7 @@ import errorHandler from "./middlewares/errorHandler.js";
 import purchaseRoutes from "./routes/purchaseRoutes.js";
 import loginRoute from "./routes/loginRoute.js";
 import registerRoute from "./routes/registerRoute.js";
+import userRoute from "./routes/userRoute.js";
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/purchases", purchaseRoutes);
+app.use("/users", userRoute);
 
 //Basic get route.
 app.get("/", (req, res) => {

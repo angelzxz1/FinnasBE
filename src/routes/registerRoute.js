@@ -4,11 +4,6 @@ import User from "../database/models/user.js";
 
 const registerRoute = Router();
 
-registerRoute.get("/", async (req, res) => {
-	const users = await User.findAll();
-	res.send({ users });
-});
-
 registerRoute.post("/", async (req, res) => {
 	const { name, email, password } = req.body;
 	console.log(name, email, password);

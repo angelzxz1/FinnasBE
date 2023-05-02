@@ -5,7 +5,7 @@ import User from "../database/models/user.js";
 
 const loginRoute = Router();
 
-loginRoute.post("/login", async (req, res) => {
+loginRoute.post("/", async (req, res) => {
 	const { email, password } = req.body;
 
 	try {
